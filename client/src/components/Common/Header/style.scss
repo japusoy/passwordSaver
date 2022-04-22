@@ -1,0 +1,47 @@
+header {
+    height: 80px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+
+    .overlay{
+        display: none;
+    }
+    .nav-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+        color: #fff;
+        padding: 0 10px;
+    }
+    .menu-button {
+        flex: 0 0 25px;
+        text-align: center;
+
+        &:hover {
+            color: #f55f54;
+            cursor: pointer;
+        }
+    }
+    .title {
+        display: flex;
+        flex: 1 0 auto;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 25px;
+        h1 {
+            font-size: 1.75rem;
+        }
+    }
+    .avatar {
+        display: block;
+        width: 40px;
+        height: 40px;
+        flex-basis: 40px;
+        margin: 0 25px;
+        box-shadow: 0 0 0 1px #fff;
+    }
+}

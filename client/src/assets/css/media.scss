@@ -1,0 +1,32 @@
+@media only screen and (max-width: 1010px) {
+
+	header {
+		.title h1 {
+			font-size: 20px;
+		}
+	}
+
+	#app-drawer {
+		.sidebar-mini {
+			transform: translateX(0) !important;
+		}
+
+		#sidebar {
+				flex-basis: 240px !important;
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 240px;
+				transform: translateX(-240px);
+				z-index: 9999;
+				height: 100%;
+
+			a.k-item-text {
+					display: block;
+			}
+
+		}
+
+	}
+
+}
