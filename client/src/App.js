@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import '@progress/kendo-theme-default/dist/all.css';
+import '@progress/kendo-theme-material/dist/all.css';
 
 import Header from './components/Common/Header/Header';
 import Sidebar from "./components/Common/Sidebar/Sidebar";

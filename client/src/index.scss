@@ -102,28 +102,65 @@ html[xmlns] .clearfix { display: block; }
 
 /* Form Preset */
 .formBox {
-    clear: both;
-	.formBoxCol10 { .group {width: 10%;} }
-	.formBoxCol9 { .group {width: 11.11%;} }
-	.formBoxCol8 { .group {width: 12.5%;} }
-	.formBoxCol7 { .group {width: 14.28%;} }
-	.formBoxCol6 { .group {width: 16.66%;} }
-	.formBoxCol5 { .group {width: 20%;} }
-	.formBoxCol4 { .group {width: 25%;} }
-	.formBoxCol3 { .group {width: 33.33%;} }
-	.formBoxCol2 { .group {width: 50%;} }
-	.formBoxCol1 { .group {width: 100%;} }
-	.group { display: inline-block; padding: 10px 0 10px 10px; vertical-align: top; float: left;
-		.k-form-field {
-			label {
-				display: block;
-				margin-bottom: 5px;
-                font-size: 12px;
-			}
-		}
-	}
+    .formBoxCol1 {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        align-items: center;
+        grid-gap: 25px;
+    }
+    .formBoxCol2 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+        grid-gap: 25px;
+    }
+    .formBoxCol3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+        grid-gap: 25px;
+    }
+    .formBoxCol4 {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        align-items: center;
+        grid-gap: 25px;
+    }
+    .formBoxCol5 {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        align-items: center;
+        grid-gap: 25px;
+    }
+    .formBoxCol6 {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        align-items: center;
+        grid-gap: 25px;
+    }
+    // clear: both;
+	// .formBoxCol10 { .group {width: 10%;} }
+	// .formBoxCol9 { .group {width: 11.11%;} }
+	// .formBoxCol8 { .group {width: 12.5%;} }
+	// .formBoxCol7 { .group {width: 14.28%;} }
+	// .formBoxCol6 { .group {width: 16.66%;} }
+	// .formBoxCol5 { .group {width: 20%;} }
+	// .formBoxCol4 { .group {width: 25%;} }
+	// .formBoxCol3 { .group {width: 33.33%;} }
+	// .formBoxCol2 { .group {width: 50%;} }
+	// .formBoxCol1 { .group {width: 100%;} }
+	// .group { display: inline-block; padding: 10px 0 10px 10px; vertical-align: top; float: left;
+		// .k-form-field {
+		// 	label {
+		// 		display: block;
+		// 		margin-bottom: 5px;
+        //         font-size: 12px;
+		// 	}
+		// }
+	// }
 }
-[class^="formBox"] [class^="formBox"] .group:first-child { padding: 10px 0 10px 0; }
-[class^="formBox"] .group:first-child { padding: 10px 0 10px 0; }
+// [class^="formBox"] [class^="formBox"] .group:first-child { padding: 10px 0 10px 0; }
+// [class^="formBox"] .group:first-child { padding: 10px 0 10px 0; }
+
 /* End of form preset */
 

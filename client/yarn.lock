@@ -1542,6 +1542,14 @@
     "@progress/kendo-react-common" "5.2.0"
     prop-types "^15.6.0"
 
+"@progress/kendo-react-form@^5.2.0":
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/@progress/kendo-react-form/-/kendo-react-form-5.2.0.tgz#4265e9901022a1b7a89f6f5ebf152a7522a0ae7a"
+  integrity sha512-aUkGBlriCpdrHlRI7dJ19vKQLTOr50xAJrjirvYNHohPo7G7T0k7yQM/Tjd8mR3nh5S3dhT91rcFR2SvHIanYw==
+  dependencies:
+    "@progress/kendo-react-common" "5.2.0"
+    prop-types "^15.6.0"
+
 "@progress/kendo-react-grid@^5.2.0":
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/@progress/kendo-react-grid/-/kendo-react-grid-5.2.0.tgz#3a3567a1e2980f63d135ee96d83edb909066a787"
@@ -1623,6 +1631,18 @@
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/@progress/kendo-theme-default/-/kendo-theme-default-5.2.0.tgz#a2349703bf3a0111c3cdbec0311c48cb4e650412"
   integrity sha512-k9VB/krxSeFRFuxk4i551oJajIv/dDGCjO4tm5Y6qXtbP06E+50zY+qbAxM6361jAYwkwY/yMqzhWRximtynAw==
+
+"@progress/kendo-theme-default@^5.3.1":
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/@progress/kendo-theme-default/-/kendo-theme-default-5.3.1.tgz#44c8ebde9a25ecfa489775241c7872973cc37839"
+  integrity sha512-CPBFahQ8SkNLZo4h8AYpFp02j7MPmFO97kg7kWjYszhyGBRrvBhw5X/Xs+hfUbw6Arv46IBhRvoa6411otwE9w==
+
+"@progress/kendo-theme-material@^5.3.1":
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/@progress/kendo-theme-material/-/kendo-theme-material-5.3.1.tgz#afdb4d4386b6ddc3983b30420aedb3be8d68c850"
+  integrity sha512-+UeFLrhiVbyUryPVqeW+xy0tzTxDpdnC4h499XGYj+nq1FkvSIcIRVxGr3tg05gxweQZ892lWCWvVHdX9U+K1w==
+  dependencies:
+    "@progress/kendo-theme-default" "^5.3.1"
 
 "@progress/pako-esm@^1.0.1":
   version "1.0.1"
