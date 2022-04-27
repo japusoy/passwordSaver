@@ -7,7 +7,7 @@ import { Input } from "@progress/kendo-react-inputs";
 import { Button } from "@progress/kendo-react-buttons";
 import { ComboBox } from "@progress/kendo-react-dropdowns";
 import { Calendar } from "@progress/kendo-react-dateinputs";
-import { Editor, EditorTools } from "@progress/kendo-react-editor";
+import { Editor, EditorTools, EditorUtils } from "@progress/kendo-react-editor";
 const emailRegex = new RegExp(/\S+@\S+\.\S+/);
 
 import { getAccounts, createAccount } from '../../actions/account';
@@ -44,21 +44,29 @@ const {
 
 const AppForm2 = () => {
   const dispatch = useDispatch();
-  const accounts = useSelector((state) => state.accounts);
-  const [accountData, setAccountData] = useState({ account_name: '', email: '', username: '', password: '', note: '<p>The KendoReact Editor allows you</p>' });
+  const [accountData, setAccountData] = useState({ account_name: '', email: '', username: '', password: '', note: '' });
+  const editor = React.createRef();
 
   useEffect(() => {
     dispatch(getAccounts());
   }, [dispatch]);
+
+  const onChangeEditor = (e) => {
+    if (editor.current) {
+      const view = editor.current.view;
+      if (view) {
+        setAccountData({...accountData, note: EditorUtils.getHtml(view.state) })
+      }
+    }
+    
+  }
   
   const handleSubmit = () => {
-    // e.preventDefault(); 
     dispatch(createAccount(accountData));
   }
 
   return (
     <Form
-
       onSubmit={handleSubmit}
       render={(formRenderProps) => (
         <FormElement 
@@ -118,7 +126,8 @@ const AppForm2 = () => {
                 </div>
               </div>
               <div className="formBoxCol1">
-                <div className="group">
+                <div className="group k-floating-label-container">
+                  <label for="editor" class="k-label">Note</label>
                   <Editor
                     tools={[
                       [Bold, Italic, Underline],
@@ -132,8 +141,8 @@ const AppForm2 = () => {
                     }}
                     id="editor"
                     name="editor"
-                    defaultContent={accountData.note}
-                    // onChange={(e) => setAccountData({ ...accountData, note: e.target.value })}
+                    ref={editor}
+                    onChange={onChangeEditor}
                   />
                 </div>
               </div>
