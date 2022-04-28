@@ -42,13 +42,15 @@ const {
   Unlink,
 } = EditorTools;
 
-const AppForm2 = () => {
-  const dispatch = useDispatch();
+const AppForm2 = ({currentId, setFormVisible, mode}) => {
   const [accountData, setAccountData] = useState({ account_name: '', email: '', username: '', password: '', note: '' });
+  const account = useSelector((state) => (currentId ? state.accounts.find((message) => message._id === currentId) : null));
+  const dispatch = useDispatch();
   const editor = React.createRef();
 
   useEffect(() => {
     dispatch(getAccounts());
+    if (account) setAccountData(account);
   }, [dispatch]);
 
   const onChangeEditor = (e) => {
@@ -58,15 +60,20 @@ const AppForm2 = () => {
         setAccountData({...accountData, note: EditorUtils.getHtml(view.state) })
       }
     }
-    
+  }
+
+  const clear = () => {
+    setAccountData({account_name: '', email: '', username: '', password: '', note: '' });
   }
   
   const handleSubmit = () => {
     dispatch(createAccount(accountData));
+    setFormVisible(false);
   }
 
   return (
     <Form
+      initialValues={account}
       onSubmit={handleSubmit}
       render={(formRenderProps) => (
         <FormElement 
@@ -77,7 +84,6 @@ const AppForm2 = () => {
             {/* <legend className={"k-form-legend"}>
               Please fill in the fields:
             </legend> */}
-
             <div className="formBox">
               <div className="formBoxCol1">
                 <div className="group">
@@ -99,6 +105,7 @@ const AppForm2 = () => {
                     label={"Email"}
                     validator={emailValidator}
                     onChange={(e) => setAccountData({ ...accountData, email: e.target.value })}
+                    // defaultValue={accountData.email}
                   />
                 </div>
               </div>
@@ -110,6 +117,7 @@ const AppForm2 = () => {
                     label={"Username"}
                     required={true}
                     onChange={(e) => setAccountData({ ...accountData, username: e.target.value })}
+                    // defaultValue={accountData.username}
                   />
                 </div>
               </div>
@@ -118,16 +126,17 @@ const AppForm2 = () => {
                   <Field
                     name={"password"}
                     component={Input}
-                    label={"password"}
+                    label={"Password"}
                     type="password"
                     required={true}
                     onChange={(e) => setAccountData({ ...accountData, password: e.target.value })}
+                    // defaultValue={accountData.password}
                   />
                 </div>
               </div>
-              <div className="formBoxCol1">
+              <div className="formBoxCol1 mt-4">
                 <div className="group k-floating-label-container">
-                  <label for="editor" class="k-label">Note</label>
+                  <label htmlFor="editor" className="k-label">Note</label>
                   <Editor
                     tools={[
                       [Bold, Italic, Underline],
@@ -143,19 +152,32 @@ const AppForm2 = () => {
                     name="editor"
                     ref={editor}
                     onChange={onChangeEditor}
+                    // defaultValue={accountData.note}
                   />
                 </div>
               </div>
             </div>
           </fieldset>
           <div className="k-form-buttons">
-            <button
+            <Button
               type={"submit"}
               className="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base"
-              disabled={!formRenderProps.allowSubmit}
+              disabled= {mode === 'ADD' ? !formRenderProps.allowSubmit : mode === 'VIEW' ? true : !formRenderProps.allowSubmit}
+              iconClass="fas fa-check"
             >
-              Submit
-            </button>
+              {mode === 'ADD' ? 'Submit' : mode === 'VIEW' ? 'VIEW' : ''}
+              
+            </Button>
+
+            <Button
+              className="buttons-container-button"
+              iconClass="fas fa-ban"
+              onClick={clear}
+              type="button"
+            >
+              Cancel
+            </Button>
+
           </div>
         </FormElement>
       )}

@@ -67,7 +67,7 @@ function Header() {
               <span className="k-icon k-i-menu" />
             </div>
             <div className="title">
-              <h1>Jmaglinte Template</h1>
+              <h1>{"iSave"}</h1>
             </div>
 
             <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0 avatarContainer">
